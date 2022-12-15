@@ -1,0 +1,78 @@
+:root {
+    --black: rgb(40, 40, 40);
+    --black2: rgb(50, 50, 50);
+    --black3: rgb(60, 60, 60);
+
+    --gray: rgb(75, 75, 75);
+    --text-gray: rgb(209, 209, 209);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: block; 
+    background-color: var(--black3);
+    color:var(--text-gray)
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    padding: 1em;
+    margin: 0.5em;
+    background-color: var(--black2);
+}
+
+.small-container {
+    padding:0.5em;
+    margin:0.5em;
+    background-color: var(--black3);
+}
+
+.messages {
+    padding-left:0;
+    background-color:  var(--gray);
+    color:gold;
+}
+
+.messages li {
+    width: 100%;
+    background-color: var(--black3);
+}
+
+.messages li p {
+    background-color: var(--black2);
+    border-radius: 0.5em;
+    width:50%;
+    padding:0.5em;
+}
+
+.my-message {
+    justify-content: right;
+    align-items: right;
+    text-align:right;
+}
+
+.friend-message {
+    justify-content: left;
+    align-items: left;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbox {
+    width:75%;
+}
