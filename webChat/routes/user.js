@@ -96,7 +96,7 @@ router.get('/friend/:code', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     console.log('updating user')
-    let user = await User.find({ friendCode: req.params.id})
+    let user = await User.find({ _id: req.params.id})
     res.json(user[0])
     
 })
