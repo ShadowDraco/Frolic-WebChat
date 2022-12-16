@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
 router.post('/add-friend', async (req, res) => {
     console.log('adding friend')
     let friend = await User.findOne({friendCode: req.body.friendCode})
-    let currentUser = await User.findOne({_id: req.body.currentUser._id})
+    let currentUser = await User.findOne({friendCode: req.body.currentUser.friendCode})
 
     let chatCode = `${Math.random(10) + Math.random(10) - Math.random(10)}${Math.random(10) + Math.random(10) - Math.random(10)}`
 
