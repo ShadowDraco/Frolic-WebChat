@@ -26,7 +26,7 @@ export default function LoginUser() {
     function submitLoginUser(e) {
         setLoginAttempted(true)
 
-        axios.post('/user/login', { username: username, password: password })
+        axios.post('/api/user/login', { username: username, password: password })
         .then(res => {
             console.log(res.data)
             res.data != false ? loginSuccess(res.data) : setUserLoggedIn(false)
