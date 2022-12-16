@@ -9,13 +9,6 @@ export default defineConfig({
     outDir: './build'
   },
   server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:5000",
-        changeOrigin: true,
-        secure: false
-      }
-    },
-    port: 3000,
+    port: 5000,
   }
 })
