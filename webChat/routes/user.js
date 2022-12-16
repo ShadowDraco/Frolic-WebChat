@@ -68,7 +68,7 @@ router.post('/message', async (req, res) => {
     let friendCode = req.body.friend
     let message = req.body.message
 
-    let user = await User.findOne({_id: userId})
+    let user = await User.findOne({friendCode: userId})
     let friend = await User.findOne({ friendCode: friendCode})
     
     let chatCode
@@ -96,7 +96,7 @@ router.get('/friend/:code', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     console.log('updating user')
-    let user = await User.find({ _id: req.params.id})
+    let user = await User.find({ friendCode: req.params.id})
     res.json(user[0])
     
 })
