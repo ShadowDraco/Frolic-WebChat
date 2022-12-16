@@ -11,7 +11,6 @@ export default defineConfig({
         target: "http://frolic-webchat.onrender.com:5000",
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '')
       }
     },
     port: 3000,
