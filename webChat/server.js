@@ -30,6 +30,11 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
     console.log('home')
+    
+})
+
+app.get('/healthy', (req, res) => {
+    res.status(200)
 })
 
 const userRouter = require('./routes/user')
