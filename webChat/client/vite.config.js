@@ -8,9 +8,9 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://frolic-webchat.onrender.com:5000",
+        target: "http://localhost:5000",
         changeOrigin: true,
-        secure: false,
+        secure: false
       }
     },
     port: 3000,
