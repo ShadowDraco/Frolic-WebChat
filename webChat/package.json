@@ -10,7 +10,7 @@
     "serverinstall": "npm i && npm i concurrently",
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm run serverinstall --prefix client && npm run build --prefix client"
+    "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm run serverinstall && npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
