@@ -30,15 +30,15 @@ async function createNewUser(username, password) {
     }
 }
 
-function loginUser(username, password) {
-    let foundUser = User.findOne({username: username, password: password}, 'username password')
+async function loginUser(username, password) {
+    let foundUser = await User.findOne({username: username, password: password}, 'username password')
     return foundUser 
 }
 
-router.post('/create', (req, res) => {
+router.post('/create', async (req, res) => {
     console.log('creating new user')
-    res.created = createNewUser(req.body.username, req.body.password)
-    res.send({ created: true})
+    let created = await createNewUser(req.body.username, req.body.password)
+    res.send(created)
 })
 
 router.post('/login', async (req, res) => {
