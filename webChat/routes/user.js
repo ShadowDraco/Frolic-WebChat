@@ -31,7 +31,7 @@ async function createNewUser(username, password) {
 }
 
 async function loginUser(username, password) {
-    let foundUser = await User.findOne({username: username, password: password})
+    let foundUser = User.findOne({username: username, password: password}, 'username password')
     return foundUser 
 }
 
