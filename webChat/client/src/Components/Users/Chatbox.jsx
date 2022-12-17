@@ -43,6 +43,7 @@ export default function Chatbox() {
 
     function getChatCode() {
         console.log('getting chat code')
+        updateUser()
         currentUser.chatCodes ? 
         currentUser.chatCodes.map((code, i) => {
             i > 0 ?
