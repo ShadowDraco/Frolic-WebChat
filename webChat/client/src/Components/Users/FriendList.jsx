@@ -16,9 +16,9 @@ export default function FriendList() {
   }, [])
 
   function updateFriends() {
-    axios.get(`/api/user/${currentUser._id}`)
+    axios.get(`/user/${currentUser._id}`)
     .then(res => {
-      console.log(res)
+      console.log(res.data)
       setFriends(res.data.friendList)
     })
   }
@@ -26,7 +26,7 @@ export default function FriendList() {
   function updateCurrentChatter(e) {
     console.log('setting currentChatter')
     
-    axios.get(`/api/user/friend/${friends[e.target.value].friendCode}`)
+    axios.get(`/user/friend/${friends[e.target.value].friendCode}`)
     .then(res => {
       console.log('got chatter')
       setCurrentChatter(res.data)
