@@ -45,13 +45,14 @@ export default function Chatbox() {
     function getChatCode() {
         console.log('getting chat code')
         updateUser()
+        currentChatter ?
         currentUser.chatCodes ? 
         currentUser.chatCodes.map((code, i) => {
             i > 0 ?
             code.friend.friendCode === currentChatter.friendCode ? setCurrentChatCode(code.code) : ''
             : ''
         })
-        : ''
+        : '' : 'no chatter yet'
     }
 
   return (
