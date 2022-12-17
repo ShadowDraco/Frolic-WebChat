@@ -18,7 +18,7 @@ export default function () {
     }
 
     function submitNewUser(e) {
-        axios.post('api/user/create', { username: username, password: password })
+        axios.post('/api/user/create', { username: username, password: password })
         .then(res => {
             console.log(res.data.created)
             setUserCreated(res.data.created)
