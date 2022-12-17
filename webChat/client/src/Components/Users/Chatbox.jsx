@@ -23,7 +23,7 @@ export default function Chatbox() {
 // setinterval(updateUszer)
 
     function updateUser() {
-        axios.get(`/user/${currentUser.friendCode}`)
+        axios.get(`api/user/${currentUser.friendCode}`)
         .then(res => {
             setCurrentUser(res.data)
         })
@@ -35,7 +35,7 @@ export default function Chatbox() {
 
     function sendMessage(e) {
         console.log('sending message')
-        axios.post(`/user/message`, { user: currentUser.friendCode, friend: currentChatter.friendCode, message: messageToSend })
+        axios.post(`api/user/message`, { user: currentUser.friendCode, friend: currentChatter.friendCode, message: messageToSend })
         .then(res => {
             updateUser()
         })

@@ -25,7 +25,7 @@ export default function FriendList() {
   function updateCurrentChatter(e) {
     console.log('setting currentChatter')
     
-    axios.get(`/user/friend/${friends[e.target.value].friendCode}`)
+    axios.get(`/api/user/friend/${friends[e.target.value].friendCode}`)
     .then(res => {
       console.log('got chatter')
       setCurrentChatter(res.data)
