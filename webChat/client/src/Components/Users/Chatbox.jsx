@@ -13,9 +13,6 @@ export default function Chatbox() {
 
     useEffect(() => {
         updateUser()
-    }, [])
-
-    useEffect(() => {
         getChatCode()
     }, [currentChatter])
 
