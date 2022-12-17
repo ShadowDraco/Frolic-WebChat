@@ -44,6 +44,7 @@ router.post('/create', async (req, res) => {
 router.post('/login', async (req, res) => {
     console.log('attempting login')
     let user = await loginUser(req.body.username, req.body.password)
+    user ? user = await User.findOne({ _id: user._id }) : ''
     user ? res.json(user) : res.send(false)
 })
 
