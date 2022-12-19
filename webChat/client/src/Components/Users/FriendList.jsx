@@ -16,6 +16,7 @@ export default function FriendList() {
   }, [])
 
   function updateFriends() {
+    console.log('updating friends')
     axios.get(`/api/user/${currentUser._id}`)
     .then(res => {
       console.log(res)
