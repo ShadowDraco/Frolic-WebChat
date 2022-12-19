@@ -28,7 +28,7 @@ export default function LoginUser() {
 
         axios.post('/api/user/login', { username: username, password: password })
         .then(res => {
-            console.log(res.data)
+            console.log(res)
             res.data != false ? loginSuccess(res.data) : setUserLoggedIn(false)
         })
     }
