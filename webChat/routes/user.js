@@ -38,6 +38,7 @@ async function loginUser(username, password) {
 router.post('/create', async (req, res) => {
     console.log('creating new user')
     let created = await createNewUser(req.body.username, req.body.password)
+    console.log('finished creating')
     res.send(created)
 })
 
@@ -45,6 +46,7 @@ router.post('/login', async (req, res) => {
     console.log('attempting login')
     let user = await loginUser(req.body.username, req.body.password)
     user ? user = await User.findOne({ _id: user._id }) : ''
+    console.log('finished logging')
     user ? res.json(user) : res.send(false)
 })
 
@@ -85,6 +87,7 @@ router.post('/message', async (req, res) => {
 
     let friendMessage = await User.updateOne( { _id: friend._id }, { $push: { messages: messageToSend }})
  
+    console.log('message sent')
     res.send('updated messages')
 
 })
@@ -92,7 +95,9 @@ router.post('/message', async (req, res) => {
 router.get('/friend/:code', async (req, res) => {
     console.log('getting a friend to chat')
     let friendCode = req.params.code
-    res.json(await User.findOne( { friendCode: friendCode }))
+    let friend = await User.findOne( { friendCode: friendCode })
+    console.group('got friend', friend)
+    res.json(friend)
 })
 
 router.get('/:id', async (req, res) => {

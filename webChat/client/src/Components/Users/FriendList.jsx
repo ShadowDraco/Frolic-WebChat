@@ -20,7 +20,6 @@ export default function FriendList() {
     axios.get(`/api/user/${currentUser._id}`)
     .then(res => {
       console.log(res)
-      setCurrentUser(res.data)
       setFriends(res.data.friendList)
     })
   }
@@ -50,7 +49,7 @@ export default function FriendList() {
               )
             }
           })
-          : updateFriends()
+          : console.log('no user to display')
         }
       </ul>
       <button onClick={updateFriends}>Refresh</button>
