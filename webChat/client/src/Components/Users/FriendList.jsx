@@ -6,7 +6,7 @@ import { ChatContext } from '../Pages/UserPage'
 
 export default function FriendList() {
 
-  const { currentUser } = useContext(UserContext)
+  const { currentUser, setCurrentUser } = useContext(UserContext)
   const { setCurrentChatter } = useContext(ChatContext)
 
   const [friends, setFriends] = useState()
@@ -20,6 +20,7 @@ export default function FriendList() {
     axios.get(`/api/user/${currentUser._id}`)
     .then(res => {
       console.log(res)
+      setCurrentUser(res.data)
       setFriends(res.data.friendList)
     })
   }
@@ -49,7 +50,7 @@ export default function FriendList() {
               )
             }
           })
-          : console.log('no users to display')
+          : updateFriends()
         }
       </ul>
       <button onClick={updateFriends}>Refresh</button>
