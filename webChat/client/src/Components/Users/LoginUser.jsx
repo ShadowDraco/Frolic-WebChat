@@ -19,8 +19,8 @@ export default function LoginUser() {
     }
 
     function loginSuccess(data) {
-        setUserLoggedIn(true)
         setCurrentUser(data)
+        setUserLoggedIn(true)
     } 
 
     function submitLoginUser(e) {

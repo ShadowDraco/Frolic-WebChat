@@ -100,10 +100,9 @@ router.get('/friend/:code', async (req, res) => {
     res.json(friend)
 })
 
-router.get('/:id', async (req, res) => {
+router.post('/update-user', async (req, res) => {
     console.log('updating user')
-    console.log(req)
-    let user = await User.find({ _id: req.params.id})
+    let user = await User.find({ _id: req.body.id})
     console.log('got user', user)
     res.json(user)
     

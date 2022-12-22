@@ -17,7 +17,7 @@ export default function FriendList() {
 
   function updateFriends() {
     console.log('updating friends')
-    axios.get(`/user/${currentUser._id}`)
+    axios.post(`/user/update-user`, ({id: currentUser._id}))
     .then(res => {
       console.log(res)
       setFriends(res.data.friendList)
