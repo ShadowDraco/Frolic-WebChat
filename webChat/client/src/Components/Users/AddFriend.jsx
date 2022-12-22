@@ -15,7 +15,7 @@ export default function AddFriend() {
 
     function submitFriendCode(e) {
         setAddedFriend(true)
-        axios.post('/api/user/add-friend', { currentUser: currentUser, friendCode: friendCode })
+        axios.post('/user/add-friend', { currentUser: currentUser, friendCode: friendCode })
         .then(res => {
             console.log(res.data)
         })
