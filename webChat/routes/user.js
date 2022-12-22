@@ -104,7 +104,7 @@ router.post('/update-user', async (req, res) => {
     console.log('updating user')
     let user = await User.find({ _id: req.body.id})
     console.log('got user', user)
-    res.json(user)
+    user ? res.json(user) : res.send('no user')
     
 })
 
