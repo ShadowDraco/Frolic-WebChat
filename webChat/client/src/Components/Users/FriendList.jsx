@@ -20,7 +20,7 @@ export default function FriendList() {
     axios.post(`/user/update-user`, ({id: currentUser._id}))
     .then(res => {
       console.log(res.data)
-      setFriends(res.data.friendList)
+      setFriends(res.data[0].friendList)
     })
   }
 
