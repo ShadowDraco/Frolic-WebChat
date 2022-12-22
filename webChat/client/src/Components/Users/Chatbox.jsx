@@ -33,7 +33,7 @@ export default function Chatbox() {
 
     function sendMessage(e) {
         console.log('sending message')
-        axios.post(`/user/message`, { user: currentUser.friendCode, friend: currentChatter.friendCode, message: messageToSend })
+        axios.post(`/user/message`, { userId: currentUser.friendCode, friend: currentChatter.friendCode, message: messageToSend })
         .then(res => {
             updateUser()
         })

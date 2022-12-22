@@ -57,8 +57,8 @@ router.post('/add-friend', async (req, res) => {
 
     let chatCode = `${Math.random(10) + Math.random(10) - Math.random(10)}${Math.random(10) + Math.random(10) - Math.random(10)}`
 
-    const addedFriend = await User.updateOne({ _id: currentUser._id }, { $push: {friendList: friend }} )
-    const addedChatCode = await User.updateOne({ _id: currentUser._id }, { $push: { chatCodes: { friend: friend, code: chatCode }}} )
+    const addedFriend = await User.updateOne({ _id: req.body.currentUser._id }, { $push: {friendList: friend }} )
+    const addedChatCode = await User.updateOne({ _id: req.body.currentUser._id }, { $push: { chatCodes: { friend: friend, code: chatCode }}} )
     const addingUser = await User.updateOne({ _id: friend._id }, { $push: {friendList: currentUser } } )
     const addingChatCode = await User.updateOne({ _id: friend._id }, { $push: { chatCodes: { friend: currentUser, code: chatCode }}} )
 
@@ -75,7 +75,7 @@ router.post('/message', async (req, res) => {
     let friend = await User.findOne({ friendCode: friendCode})
     
     let chatCode
-    findCode = user.chatCodes.forEach((code, i) => {
+    let findCode = user.chatCodes.forEach((code, i) => {
         if (i > 0 && code.friend.friendCode === friend.friendCode) { 
             chatCode = code.code
         }
